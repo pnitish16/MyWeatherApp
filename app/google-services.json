@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "964622071386",
+    "project_id": "myweatherapp-22a2c",
+    "storage_bucket": "myweatherapp-22a2c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:964622071386:android:bb0f5ba16bbb641a3f4a63",
+        "android_client_info": {
+          "package_name": "com.nitish.myweatherapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "964622071386-957c3qkgrlbl5n921nde075ibft9buhr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nitish.myweatherapp",
+            "certificate_hash": "94c3a1a94cdb546477bdd428b8331fee8a2574c4"
+          }
+        },
+        {
+          "client_id": "964622071386-7jbkscvgdmuiksdqdnhkeisruva46j9d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBAjBPhukdl7QGefkOUtkRqjW0ADq393u4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "964622071386-7jbkscvgdmuiksdqdnhkeisruva46j9d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

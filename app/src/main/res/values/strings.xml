@@ -1,0 +1,8 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">MyWeatherApp</string>
+    <string name="enter_city">Enter City e.g London</string>
+    <string name="h" translatable="false">h</string>
+    <string name="dash" translatable="false">-</string>
+    <string name="l" translatable="false">l</string>
+    <string name="empty" translatable="false" tools:ignore="ExtraTranslation">No Data</string>
+</resources>

@@ -11,7 +11,8 @@ interface WeatherApiClient {
     @GET("data/2.5/weather")
     suspend fun getWeather(
         @Query("q") cityName: String,
-        @Query("appId") appId: String
+        @Query("appId") appId: String,
+        @Query("units") units: String = "metric"
     ): Response<ApiResponse>
 
     @GET("geo/1.0/reverse")
@@ -19,6 +20,6 @@ interface WeatherApiClient {
         @Query("lat") latitude: Double,
         @Query("lon") longitude: Double,
         @Query("limit") limit: Int,
-        @Query("appId") appId: String
+        @Query("appId") appId: String,
     ) : Response<List<GeocodeResponseItem>>
 }

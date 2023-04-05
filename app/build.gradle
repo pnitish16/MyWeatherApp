@@ -51,6 +51,8 @@ dependencies {
         coroutines_version = "1.6.4"
         lifecycle_version = "2.6.1"
         picasso_version = "2.71828"
+        okhttp_version = "5.0.0-alpha.9"
+        picasso_downloader = "1.1.0"
         moshi_version = "1.9.2"
         permission_dispatcher = '4.9.2'
         play_services_location = '21.0.1'
@@ -84,7 +86,8 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
 
     //picasso
-    implementation "com.squareup.picasso:picasso:2.71828"
+    implementation "com.squareup.picasso:picasso:$picasso_version"
+    implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
 
     //room
     implementation "androidx.room:room-runtime:2.5.1"

@@ -1,5 +1,7 @@
 package com.nitish.myweatherapp.di
 
+import android.content.SharedPreferences
+import com.google.android.gms.common.util.SharedPreferencesUtils
 import com.nitish.myweatherapp.BuildConfig
 import com.nitish.myweatherapp.data.network.client.WeatherApiClient
 import com.nitish.myweatherapp.data.network.mapper.ApiMapper
@@ -70,6 +72,7 @@ val applicationModule = module {
             get(),
         )
     }
+
 
     single { Picasso.get() }
 

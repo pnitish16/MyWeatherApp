@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="weatherItem"
             type="com.nitish.myweatherapp.domain.WeatherUiItem" />
@@ -17,7 +18,7 @@
 
         <com.nitish.myweatherapp.utils.widgets.SearchEditText
             android:id="@+id/et_search_city"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="24dp"
             android:layout_marginTop="24dp"
@@ -29,20 +30,23 @@
             android:padding="10dp"
             android:paddingHorizontal="10dp"
             android:selectAllOnFocus="false"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/iv_gps_location"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/error_text"
+        <ImageView
+            android:id="@+id/iv_gps_location"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginEnd="10dp"
+            android:padding="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/et_search_city"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/et_search_city"
+            app:srcCompat="@android:drawable/ic_menu_mylocation" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="24dp"
@@ -53,13 +57,17 @@
 
             <TextView
                 android:id="@+id/city_name"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:textSize="40sp"
+                android:layout_marginStart="10dp"
+                android:gravity="end"
+                android:text="@{weatherItem.cityName}"
+                android:textColor="@color/white"
+                android:textSize="30sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/temp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/temp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/temp"
+                app:layout_constraintStart_toEndOf="@+id/temp"
                 tools:text="Tokyo" />
 
 
@@ -67,11 +75,12 @@
                 android:id="@+id/temp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="60sp"
+                android:text="@{weatherItem.temperature}"
+                android:textColor="@color/white"
+                android:textSize="40sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:text="@{weatherItem.temperature}"
                 tools:text="12" />
 
             <ImageView
@@ -79,16 +88,17 @@
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="20dp"
-                android:src="@drawable/icon_app"
                 app:layout_constraintStart_toStartOf="@+id/temp"
-                app:layout_constraintTop_toBottomOf="@+id/temp" />
+                app:layout_constraintTop_toBottomOf="@+id/temp"
+                app:loadImage="@{weatherItem.weatherIcon}" />
 
             <TextView
                 android:id="@+id/weather_type"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:textSize="20sp"
+                android:text="@{weatherItem.weatherMain}"
+                android:textColor="@color/white"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/iv_weather_icon"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -96,50 +106,64 @@
                 app:layout_constraintHorizontal_chainStyle="spread"
                 app:layout_constraintStart_toEndOf="@+id/iv_weather_icon"
                 app:layout_constraintTop_toTopOf="@+id/iv_weather_icon"
-                tools:text="Wind : 2m/s" />
-
-            <TextView
-                android:id="@+id/wind"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/humidity"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintHorizontal_chainStyle="spread"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/iv_weather_icon"
-                tools:text="Wind : 2m/s" />
+                tools:text="Light Rain" />
 
             <TextView
                 android:id="@+id/feels_like"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:text="@{weatherItem.feelsLike}"
+                android:textColor="@color/white"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintHorizontal_chainStyle="spread"
                 app:layout_constraintHorizontal_weight="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/wind"
+                app:layout_constraintTop_toBottomOf="@+id/iv_weather_icon"
                 tools:text="Feels Like" />
 
             <TextView
                 android:id="@+id/humidity"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:textSize="20sp"
+                android:layout_marginTop="10dp"
+                android:text="@{weatherItem.humidity}"
+                android:textColor="@color/white"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/wind"
-                app:layout_constraintTop_toTopOf="@+id/wind"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/feels_like"
                 tools:text="Humidity: 14" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/error_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@string/no_data"
+            android:textColor="@color/white"
+            tools:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/constraintLayout" />
+
+        <ProgressBar
+            android:id="@+id/loader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:indeterminateTint="@color/white"
+            android:indeterminateTintMode="src_atop"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/error_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_search_city"
+            tools:visibility="visible" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

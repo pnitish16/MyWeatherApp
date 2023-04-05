@@ -1,16 +1,17 @@
 package com.nitish.myweatherapp.domain
 
-import com.nitish.myweatherapp.data.network.model.WeatherItem
-
 data class WeatherUiItem(
-    val countryName: String,
+    val city: String,
+    val cityName: String,
     val temperature: String,
     val pressure: Int,
-    val humidity: Int,
-    val minTemp: Double,
-    val maxTemp: Double,
+    val humidity: String,
+    val minTemp: Int,
+    val maxTemp: Int,
     val clouds: Int,
-    val rainLastHr: Double,
     val feelsLike: String,
-    val weatherItems: List<WeatherItem?>? = emptyList()
+    val weatherMain: String,
+    val weatherId: Int,
+    val weatherDesc: String,
+    val weatherIcon: String
 )

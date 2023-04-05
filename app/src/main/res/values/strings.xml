@@ -4,5 +4,5 @@
     <string name="h" translatable="false">h</string>
     <string name="dash" translatable="false">-</string>
     <string name="l" translatable="false">l</string>
-    <string name="empty" translatable="false" tools:ignore="ExtraTranslation">No Data</string>
+    <string name="no_data" translatable="false">No Data Found</string>
 </resources>

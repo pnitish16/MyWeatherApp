@@ -7,6 +7,8 @@ import com.nitish.myweatherapp.utils.Constants
 import kotlin.math.ceil
 
 class ApiMapperImpl : ApiMapper {
+
+    // converting the api object to ui object
     override fun mapApiUserItemToDomain(weatherDataItem: ApiResponse): WeatherUiItem {
         with(weatherDataItem) {
 
